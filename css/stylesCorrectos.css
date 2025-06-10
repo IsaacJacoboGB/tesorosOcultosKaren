@@ -1,0 +1,359 @@
+@import url('https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Cinzel+Decorative:wght@400;700;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Encabezado */
+@import url('https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Cinzel+Decorative:wght@400;700;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400&display=swap');
+header {
+	font-family: 'Cinzel Decorative', sans-serif;
+}
+
+body {
+
+	background-color: #f8f9fa;
+	margin: 0;
+	padding: 0px;
+	margin: 0;
+}
+
+.cinzel-decorative-regular {
+	font-family: 'Cinzel Decorative', serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.cinzel-decorative-bold {
+	font-family: 'Cinzel Decorative', serif;
+	font-weight: 500;
+	font-style: normal;
+}
+
+.cinzel-decorative-black {
+	font-family: 'Cinzel Decorative', serif;
+	font-weight: 600;
+	font-style: normal;
+}
+
+/* ----------------------------------------------------Estilos generales para el header -----------------------------------------------*/
+
+.header {
+    padding: 1px 0;
+    margin: 0;
+    height: 60px;
+    background-color: #606834; /* Usando el color que definiste en el HTML */
+    border-bottom: 1px solid #ddd;
+    display: flex; /* Añade esto */
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: center; /* Centra horizontalmente el contenido */
+}
+
+/* Estilos para el contenedor del menú */
+.header-menu {
+	display: flex;
+    justify-content: space-between; /* Distribuye el espacio entre logo y nav */
+    align-items: center;
+    padding: 0 20px;
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 1200px; /* Establece un ancho máximo si lo deseas */
+}
+
+/* Estilos para el logo a la izquierda */
+.logoImg {
+    display: flex;
+    align-items: center;
+}
+
+.logoImg img {
+    width: auto; /* Cambiado de 35% a auto para mejor control */
+    height: 40px; /* Altura fija para el logo */
+    margin-left: 0; /* Eliminamos el margen izquierdo */
+}
+
+/* Estilos para la barra de navegación a la derecha */
+
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+	width: auto;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 15px; /* Un solo gap es suficiente */
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    display: inline-block;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* Hover solo aplica si NO está activo */
+.navbar ul li a:not(.active):hover {
+    color: #000000;
+}
+
+.navbar ul li.active a,
+.navbar ul li a.active {
+    color: #000000 !important;  /* Negro cuando está seleccionado */
+    font-weight: bold;
+	pointer-events: none;
+}
+.navbar ul li a.active:hover {
+    color: #000000 !important;
+}
+body.page-yautepec .navbar ul li a[href="/html/yautepec.html"],
+
+
+/* Estilos para el contenedor del contenido del header */
+.header-content {
+	width: 100%;
+	text-align: center;
+	padding: 0px 0;
+	margin-top: 0;
+}
+
+/* Estilos para el título */
+.titleWelcome {
+	text-align: center;
+	margin-top: 0px; 
+}
+
+.titleWelcome h2 {
+	font-size: 30px;
+	color: black;
+	margin: 0;
+	font-family: 'Cinzel Decorative', serif;
+	font-weight: 700;
+}
+
+/* Estilos para la sección de Morelos */
+.morelos {
+	padding: 40px 0;
+}
+
+.morelos-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+/* Estilos para el título */
+.h2-morelos {
+	font-size: 32px;
+	font-weight: bold;
+	margin-bottom: 20px;
+	color: #333;
+	font-family: 'Cinzel Decorative', sans-serif;
+}
+
+/* Estilos para centrar el iframe del mapa */
+iframe {
+	max-width: 100%;
+	width: 600px;
+	height: 550px;
+	border: none;
+	margin: 0 auto;
+	align-items: center;
+}
+
+/* ----------------------------------------------Estilos del footer---------------------------------- */
+.footer {
+    background-color: #606834;
+    color: white;
+    text-align: left; /* Cambiado de center a left */
+    padding: 30px 0; /* Añadido más padding */
+    width: 400;
+	font-family: 'Adobe Caslon Pro', serif; /* Fuente para el footer */
+	position: relative;
+	min-height: 100px; /* Aumentado para más espacio */
+	box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil en la parte superior */
+}
+
+.footer-container {
+    display: flex;
+    justify-content: flex-start; /* Cambiado de space-around a flex-start */
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* Añadido padding lateral */
+    gap: 80px; /* Espacio entre secciones */
+}
+
+.footer-section {
+    margin: 0; /* Eliminamos el margen anterior */
+}
+
+.footer-section h4 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-family: 'Cinzel Decorative', serif;
+}
+
+.footer-section p,
+.footer-section a {
+    font-size: 16px;
+    margin: 8px 0; /* Aumentado el margen vertical */
+    color: white;
+    text-decoration: none;
+    display: block; /* Hace que cada enlace ocupe su propia línea */
+}
+
+.footer-section a:hover {
+	text-decoration: underline;
+}
+
+.copyright {
+	margin-top: 10px;
+	font-size: 14px;
+	color: #bbb;
+}
+
+/* Estilo para el enlace de Aviso Legal */
+.legal-link {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.legal-link:hover {
+    color: #f0f0f0;
+    text-decoration: underline;
+}
+
+/* Estilos para centrar la sección y el texto  de todos los textos*/
+.text-section {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: justify;
+	max-width: 950px;
+	margin: 0 auto;
+	padding: 0 20px;
+	line-height: 1.6;
+	font-size: 16px;
+	
+}
+.text-section p {
+	margin-bottom: 10px;
+	text-align: justify; /* Justifica el texto general */
+    text-align-last: left;
+}
+.text-p-caslon {
+	color: #555;
+	margin-bottom: 35px;
+	text-align: justify; /* Asegura que todos los párrafos con esta clase estén justificados */
+    margin-bottom: 35px;
+    color: #555;
+    text-indent: 0; /* Elimina sangría inicial si la hay */
+    padding-left: 0; /* Elimina relleno izquierdo no deseado */
+    margin-left: 0; /* Elimina margen izquierdo no deseado */
+	font-family: 'Adobe Caslon Pro', serif;
+}
+.versalitas {
+	font-family: 'Roboto Slab', serif; /* Usa la fuente con versalitas */
+	font-variant: small-caps; /* Aplica versalitas */
+}
+
+/* imagen principal zonas */
+.image-principal {
+	width: 600px; /* Ajusta el ancho de la imagen al 100% del contenedor */
+	height: 350px; /* Mantiene la proporción de la imagen */
+	border-radius: 10px; /* Bordes redondeados */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra alrededor de la imagen */
+	margin: 20px 0; /* Espacio superior e inferior */
+	display: block; /* Asegura que la imagen se comporte como un bloque */
+
+	margin-left: auto; /* Centra la imagen horizontalmente */
+	margin-right: auto; /* Centra la imagen horizontalmente */
+}
+
+/* Estilos personalizados carousel  */
+
+
+.mi-carrusel {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+/* Estilos para el contenedor del slide */
+.slide-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.splide__slide {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 8px;
+	overflow: hidden;
+	height: 500px !important; /* Altura fija */
+	width: 800px !important;
+}
+
+.splide__slide img {
+	width: auto;
+	height: calc(100% - 50px); /* Restamos espacio para el pie de foto */
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: cover; /*Recorta la imagen para llenar el espacio esto si cubre todo el espacio v2*/
+	object-position: center; /*Enfoca el centro de la imagen esto si cubre todo el espacio v2 */
+}
+/* Estilos para el pie de foto */
+.slide-caption {
+    text-align: center;
+    padding: 8px 0;
+    font-family: 'Adobe Caslon Pro', serif;
+    font-size: 14px;
+    margin-top: auto; /* Esto lo coloca al final del contenedor */
+	color: #555;
+
+}
+
+.splide__arrows {
+	display: flex;
+	justify-content: center;
+	margin-top: 15px;
+}
+
+.splide__pagination {
+	bottom: -40px;
+}
+
+
+.btn-arriba {
+    position: fixed;
+    bottom: 50px;    /* Más separación del fondo */
+    right: 50px;     /* Más separación del lado derecho */
+    width: 50px;     /* Más grande */
+    height: 50px;    /* Más grande */
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 8px; /* Bordes ligeramente redondeados */
+    font-size: 30px;    /* Flecha más grande */
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-arriba:hover {
+    background-color: #606834;
+  }
