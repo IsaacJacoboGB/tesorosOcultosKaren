@@ -1,199 +1,301 @@
 @import url('https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Cinzel+Decorative:wght@400;700;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-/* Encabezado */
-@import url('https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Cinzel+Decorative:wght@400;700;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400&display=swap');
-header {
-	font-family: 'Cinzel Decorative', sans-serif;
+
+/* Variables CSS para colores */
+:root {
+    --primary-color: #606834;
+    --text-light: #ffffff;
+    --text-dark: #000000;
+    --background-color: #f8f9fa;
+    --text-gray: #555;
+}
+
+/* Reset y configuración general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-
-	background-color: #f8f9fa;
-	margin: 0;
-	padding: 0px;
-	margin: 0;
+    background-color: var(--background-color);
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    padding-top: 60px; /* Espacio para header fixed */
 }
 
-.cinzel-decorative-regular {
-	font-family: 'Cinzel Decorative', serif;
-	font-weight: 400;
-	font-style: normal;
-}
-
-.cinzel-decorative-bold {
-	font-family: 'Cinzel Decorative', serif;
-	font-weight: 500;
-	font-style: normal;
-}
-
-.cinzel-decorative-black {
-	font-family: 'Cinzel Decorative', serif;
-	font-weight: 600;
-	font-style: normal;
-}
-
-/* ----------------------------------------------------Estilos generales para el header -----------------------------------------------*/
-
+/* ===== HEADER STYLES ===== */
 .header {
-    padding: 1px 0;
-    margin: 0;
+    background-color: var(--primary-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     height: 60px;
-    background-color: #606834; /* Usando el color que definiste en el HTML */
-    border-bottom: 1px solid #ddd;
-    display: flex; /* Añade esto */
-    align-items: center; /* Centra verticalmente los elementos */
-    justify-content: center; /* Centra horizontalmente el contenido */
-}
-
-/* Estilos para el contenedor del menú */
-.header-menu {
-	display: flex;
-    justify-content: space-between; /* Distribuye el espacio entre logo y nav */
+    display: flex;
     align-items: center;
-    padding: 0 20px;
-    width: 100%; /* Ocupa todo el ancho disponible */
-    max-width: 1200px; /* Establece un ancho máximo si lo deseas */
+    font-family: 'Cinzel Decorative', serif;
 }
 
-/* Estilos para el logo a la izquierda */
+.header-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ===== LOGO STYLES ===== */
 .logoImg {
     display: flex;
     align-items: center;
 }
 
 .logoImg img {
-    width: auto; /* Cambiado de 35% a auto para mejor control */
-    height: 40px; /* Altura fija para el logo */
-    margin-left: 0; /* Eliminamos el margen izquierdo */
+    height: 40px;
+    width: auto;
+    transition: transform 0.3s ease;
 }
 
-/* Estilos para la barra de navegación a la derecha */
+.logoImg img:hover {
+    transform: scale(1.05);
+}
 
+/* ===== NAVBAR DESKTOP ===== */
 .navbar {
     display: flex;
-    justify-content: flex-end;
-	width: auto;
+    align-items: center;
 }
 
 .navbar ul {
-    list-style: none;
     display: flex;
-    gap: 15px; /* Un solo gap es suficiente */
+    list-style: none;
+    gap: 25px;
     margin: 0;
     padding: 0;
 }
 
-.navbar ul li {
-    display: inline-block;
-}
-
 .navbar ul li a {
+    color: var(--text-light);
     text-decoration: none;
-    color: #ffffff;
-    font-size: 16px;
     font-weight: 500;
+    font-size: 16px;
     transition: color 0.3s ease;
+    position: relative;
 }
 
-/* Hover solo aplica si NO está activo */
-.navbar ul li a:not(.active):hover {
-    color: #000000;
+.navbar ul li a:hover {
+    color: var(--text-dark);
 }
 
-.navbar ul li.active a,
 .navbar ul li a.active {
-    color: #000000 !important;  /* Negro cuando está seleccionado */
+    color: var(--text-dark);
     font-weight: bold;
-	pointer-events: none;
-}
-.navbar ul li a.active:hover {
-    color: #000000 !important;
-}
-body.page-yautepec .navbar ul li a[href="/html/yautepec.html"],
-
-
-/* Estilos para el contenedor del contenido del header */
-.header-content {
-	width: 100%;
-	text-align: center;
-	padding: 0px 0;
-	margin-top: 0;
+    pointer-events: none;
 }
 
-/* Estilos para el título */
+.navbar ul li a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-dark);
+}
+
+/* ===== HAMBURGER BUTTON ===== */
+.hamburger-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1001;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 35px;
+    height: 30px;
+}
+
+.hamburger-line {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-light);
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+/* ===== TÍTULOS Y CONTENIDO ===== */
 .titleWelcome {
-	text-align: center;
-	margin-top: 0px; 
+    text-align: center;
+    margin: 40px 0 20px 0;
 }
 
 .titleWelcome h2 {
-	font-size: 30px;
-	color: black;
-	margin: 0;
-	font-family: 'Cinzel Decorative', serif;
-	font-weight: 700;
+    font-size: 30px;
+    color: var(--text-dark);
+    font-family: 'Cinzel Decorative', serif;
+    font-weight: 700;
 }
 
-/* Estilos para la sección de Morelos */
+/* ===== SECCIÓN DE TEXTO ===== */
+.text-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 0 20px;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+.text-section p {
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.text-p-caslon {
+    color: var(--text-gray);
+    margin-bottom: 35px;
+    text-align: justify;
+    font-family: 'Adobe Caslon Pro', serif;
+}
+
+.versalitas {
+    font-family: 'Roboto Slab', serif;
+    font-variant: small-caps;
+}
+
+/* ===== IMAGEN PRINCIPAL ===== */
+.image-principal {
+    width: 100%;
+    max-width: 600px;
+    height: 350px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* ===== MORELOS SECTION ===== */
 .morelos {
-	padding: 40px 0;
+    padding: 40px 0;
 }
 
 .morelos-content {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
-	max-width: 900px;
-	margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* Estilos para el título */
 .h2-morelos {
-	font-size: 32px;
-	font-weight: bold;
-	margin-bottom: 20px;
-	color: #333;
-	font-family: 'Cinzel Decorative', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+    font-family: 'Cinzel Decorative', serif;
 }
 
-/* Estilos para centrar el iframe del mapa */
 iframe {
-	max-width: 100%;
-	width: 600px;
-	height: 550px;
-	border: none;
-	margin: 0 auto;
-	align-items: center;
+    width: 100%;
+    max-width: 600px;
+    height: 450px;
+    border: none;
+    margin: 20px auto;
 }
 
-/* ----------------------------------------------Estilos del footer---------------------------------- */
-.footer {
-    background-color: #606834;
+/* ===== CAROUSEL STYLES ===== */
+.mi-carrusel {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.slide-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.splide__slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 500px;
+}
+
+.splide__slide img {
+    width: 100%;
+    height: calc(100% - 50px);
+    object-fit: cover;
+    object-position: center;
+}
+
+.slide-caption {
+    text-align: center;
+    padding: 8px 0;
+    font-family: 'Adobe Caslon Pro', serif;
+    font-size: 14px;
+    color: var(--text-gray);
+    margin-top: auto;
+}
+
+/* ===== BOTÓN ARRIBA ===== */
+.btn-arriba {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #333;
     color: white;
-    text-align: left; /* Cambiado de center a left */
-    padding: 30px 0; /* Añadido más padding */
-    width: 400;
-	font-family: 'Adobe Caslon Pro', serif; /* Fuente para el footer */
-	position: relative;
-	min-height: 100px; /* Aumentado para más espacio */
-	box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil en la parte superior */
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 999;
+    transition: background-color 0.3s ease;
+}
+
+.btn-arriba:hover {
+    background-color: var(--primary-color);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: left;
+    padding: 40px 0;
+    font-family: 'Adobe Caslon Pro', serif;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .footer-container {
     display: flex;
-    justify-content: flex-start; /* Cambiado de space-around a flex-start */
+    justify-content: flex-start;
     flex-wrap: wrap;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px; /* Añadido padding lateral */
-    gap: 80px; /* Espacio entre secciones */
-}
-
-.footer-section {
-    margin: 0; /* Eliminamos el margen anterior */
+    padding: 0 20px;
+    gap: 60px;
 }
 
 .footer-section h4 {
@@ -205,155 +307,482 @@ iframe {
 .footer-section p,
 .footer-section a {
     font-size: 16px;
-    margin: 8px 0; /* Aumentado el margen vertical */
+    margin: 8px 0;
     color: white;
     text-decoration: none;
-    display: block; /* Hace que cada enlace ocupe su propia línea */
+    display: block;
 }
 
 .footer-section a:hover {
-	text-decoration: underline;
-}
-
-.copyright {
-	margin-top: 10px;
-	font-size: 14px;
-	color: #bbb;
-}
-
-/* Estilo para el enlace de Aviso Legal */
-.legal-link {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.legal-link:hover {
-    color: #f0f0f0;
     text-decoration: underline;
 }
 
-/* Estilos para centrar la sección y el texto  de todos los textos*/
-.text-section {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	text-align: justify;
-	max-width: 950px;
-	margin: 0 auto;
-	padding: 0 20px;
-	line-height: 1.6;
-	font-size: 16px;
-	
-}
-.text-section p {
-	margin-bottom: 10px;
-	text-align: justify; /* Justifica el texto general */
-    text-align-last: left;
-}
-.text-p-caslon {
-	color: #555;
-	margin-bottom: 35px;
-	text-align: justify; /* Asegura que todos los párrafos con esta clase estén justificados */
-    margin-bottom: 35px;
-    color: #555;
-    text-indent: 0; /* Elimina sangría inicial si la hay */
-    padding-left: 0; /* Elimina relleno izquierdo no deseado */
-    margin-left: 0; /* Elimina margen izquierdo no deseado */
-	font-family: 'Adobe Caslon Pro', serif;
-}
-.versalitas {
-	font-family: 'Roboto Slab', serif; /* Usa la fuente con versalitas */
-	font-variant: small-caps; /* Aplica versalitas */
+.copyright {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #bbb;
+    text-align: center;
 }
 
-/* imagen principal zonas */
-.image-principal {
-	width: 600px; /* Ajusta el ancho de la imagen al 100% del contenedor */
-	height: 350px; /* Mantiene la proporción de la imagen */
-	border-radius: 10px; /* Bordes redondeados */
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra alrededor de la imagen */
-	margin: 20px 0; /* Espacio superior e inferior */
-	display: block; /* Asegura que la imagen se comporte como un bloque */
+/* ===== RESPONSIVE DESIGN ===== */
 
-	margin-left: auto; /* Centra la imagen horizontalmente */
-	margin-right: auto; /* Centra la imagen horizontalmente */
+/* Tablets */
+@media (max-width: 1024px) {
+    .header-menu {
+        padding: 0 15px;
+    }
+    
+    .text-section {
+        padding: 0 15px;
+    }
+    
+    .image-principal {
+        max-width: 500px;
+        height: 300px;
+    }
 }
 
-/* Estilos personalizados carousel  */
-
-
-.mi-carrusel {
-	max-width: 800px;
-	margin: 0 auto;
-	padding: 20px;
+/* Mobile */
+@media (max-width: 768px) {
+    /* Mostrar botón hamburguesa */
+    .hamburger-btn {
+        display: flex !important;
+    }
+    
+    /* Ocultar navbar normal y convertir en menú móvil */
+    .navbar {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: var(--primary-color);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.4s ease;
+        z-index: 1000;
+        box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+    }
+    
+    /* Mostrar navbar cuando esté activa */
+    .navbar.active {
+        right: 0 !important;
+    }
+    
+    /* Estilos para lista en móvil */
+    .navbar ul {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .navbar ul li {
+        width: 100%;
+    }
+    
+    .navbar ul li a {
+        font-size: 18px;
+        padding: 15px 20px;
+        display: block;
+        width: 100%;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    /* Animaciones del botón hamburguesa */
+    .hamburger-btn.active .hamburger-line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .hamburger-btn.active .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger-btn.active .hamburger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
+    /* Ajustes para móvil */
+    .logoImg img {
+        height: 35px;
+    }
+    
+    .titleWelcome h2 {
+        font-size: 24px;
+    }
+    
+    .h2-morelos {
+        font-size: 26px;
+    }
+    
+    .image-principal {
+        max-width: 100%;
+        height: 250px;
+    }
+    
+    .mi-carrusel {
+        padding: 10px;
+    }
+    
+    .splide__slide {
+        height: 400px;
+    }
+    
+    iframe {
+        height: 300px;
+    }
+    
+    .footer-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .btn-arriba {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
 }
 
-/* Estilos para el contenedor del slide */
-.slide-container {
+/* Mobile pequeño */
+@media (max-width: 480px) {
+    .header-menu {
+        padding: 0 10px;
+    }
+    
+    .text-section {
+        padding: 0 10px;
+    }
+    
+    .titleWelcome h2 {
+        font-size: 20px;
+    }
+    
+    .h2-morelos {
+        font-size: 22px;
+    }
+    
+    .navbar {
+        width: 80%;
+    }
+    
+    .splide__slide {
+        height: 300px;
+    }
+    
+    iframe {
+        height: 250px;
+    }
+}
+
+/* ===== ESTILOS ESPECÍFICOS PARA COATETELCO ===== */
+.page-coatetelco .main-content {
     display: flex;
     flex-direction: column;
-    height: 100%;
-}
-
-.splide__slide {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: 8px;
-	overflow: hidden;
-	height: 500px !important; /* Altura fija */
-	width: 800px !important;
-}
-
-.splide__slide img {
-	width: auto;
-	height: calc(100% - 50px); /* Restamos espacio para el pie de foto */
-	max-width: 100%;
-	max-height: 100%;
-	object-fit: cover; /*Recorta la imagen para llenar el espacio esto si cubre todo el espacio v2*/
-	object-position: center; /*Enfoca el centro de la imagen esto si cubre todo el espacio v2 */
-}
-/* Estilos para el pie de foto */
-.slide-caption {
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 8px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.page-coatetelco .image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.page-coatetelco .image-principal {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    max-height: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    display: block;
+    object-fit: cover;
+}
+
+.page-coatetelco .image-caption {
     font-family: 'Adobe Caslon Pro', serif;
     font-size: 14px;
-    margin-top: auto; /* Esto lo coloca al final del contenedor */
-	color: #555;
-
+    color: #555;
+    margin-top: 10px;
+    text-align: center;
 }
 
-.splide__arrows {
-	display: flex;
-	justify-content: center;
-	margin-top: 15px;
+.page-coatetelco .descarga-cronica {
+    text-align: center;
+    margin: 30px 0;
 }
 
-.splide__pagination {
-	bottom: -40px;
+.page-coatetelco .btn-cronica {
+    display: inline-block;
 }
 
+.page-coatetelco .btn-cronica img {
+    max-width: 200px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
 
-.btn-arriba {
-    position: fixed;
-    bottom: 50px;    /* Más separación del fondo */
-    right: 50px;     /* Más separación del lado derecho */
-    width: 50px;     /* Más grande */
-    height: 50px;    /* Más grande */
-    background-color: #333;
-    color: white;
+.page-coatetelco .btn-cronica img:hover {
+    transform: scale(1.05);
+}
+
+.page-coatetelco .mapa-ubicacion {
+    width: 100%;
+    max-width: 600px;
+    height: 450px;
     border: none;
-    border-radius: 8px; /* Bordes ligeramente redondeados */
-    font-size: 30px;    /* Flecha más grande */
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-    z-index: 1000;
-    transition: background-color 0.3s ease;
-  }
+    margin: 30px auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
 
-  .btn-arriba:hover {
-    background-color: #606834;
-  }
+/* Modales */
+.modal-content {
+    font-family: 'Adobe Caslon Pro', serif;
+}
+
+.modal-title {
+    font-family: 'Cinzel Decorative', serif;
+}
+
+.modal-body {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .page-coatetelco .image-principal {
+        max-height: 300px;
+    }
+    
+    .page-coatetelco .btn-cronica img {
+        max-width: 150px;
+    }
+    
+    .page-coatetelco .mapa-ubicacion {
+        height: 350px;
+    }
+    
+    .modal-dialog {
+        margin: 10px;
+    }
+    
+    .modal-body {
+        font-size: 14px;
+    }
+	.text-section, .main-content, .image-container {
+        padding: 0 15px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .text-p-caslon {
+        padding: 0;
+        text-align: justify;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-coatetelco .image-principal {
+        max-height: 250px;
+    }
+    
+    .page-coatetelco .btn-cronica img {
+        max-width: 120px;
+    }
+    
+    .page-coatetelco .mapa-ubicacion {
+        height: 250px;
+    }
+}
+
+
+.text-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 0 20px;
+    line-height: 1.6;
+}
+
+.text-p-caslon {
+    width: 100%;
+    max-width: 950px;
+    color: var(--text-gray);
+    text-align: justify;
+    font-family: 'Adobe Caslon Pro', serif;
+}
+
+
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    .text-section {
+        padding: 0 15px;
+        font-size: 15px;
+        text-align: justify;
+    }
+}
+
+@media (max-width: 480px) {
+    .text-section {
+        padding: 0 10px;
+        font-size: 14px;
+    }
+}
+
+.text-section {
+    width: 100%;
+    max-width: 950px;
+    word-wrap: break-word;
+}
+
+.mi-carrusel {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.splide__slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 500px;
+}
+
+
+.btn-cronica {
+    display: inline-block;
+    max-width: 100%;
+    text-align: center;
+    margin: 20px auto;
+}
+
+.btn-cronica img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    transition: transform 0.3s ease;
+    display: block;
+    margin: 0 auto;
+}
+
+.btn-cronica img:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .btn-cronica img {
+        max-width: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn-cronica img {
+        max-width: 120px;
+    }
+}
+
+
+/*------------------------------------------*/
+/* Estilos para el menú hamburguesa */
+.hamburger-btn {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1001;
+}
+
+.hamburger-line {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+/* Animación del botón hamburguesa */
+.hamburger-btn.active .hamburger-line:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger-btn.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-btn.active .hamburger-line:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .hamburger-btn {
+        display: flex;
+    }
+    
+    .navbar {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 250px;
+        height: 100vh;
+        background-color: #606834;
+        transition: right 0.3s ease;
+        z-index: 1000;
+        padding-top: 60px;
+    }
+    
+    .navbar.active {
+        right: 0;
+    }
+    
+    .navbar ul {
+        flex-direction: column;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .navbar li {
+        margin: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .navbar a {
+        display: block;
+        padding: 15px 20px;
+        color: white;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
+    
+    .navbar a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+}
