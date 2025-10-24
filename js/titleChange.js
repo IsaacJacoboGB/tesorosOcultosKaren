@@ -18,8 +18,6 @@ document.addEventListener('DOMContentLoaded', function () {
 					titleElement.textContent = 'Una pirámide en la carretera';
 				} else if (cleanedPathname.includes('yautepec')) {
 					titleElement.textContent = 'Un palacio en Yautepec';
-				} else if (cleanedPathname.includes('avisoLegal')) {
-					titleElement.textContent = 'Aviso Legal';
 				} else {
 					titleElement.textContent = '¡Bienvenidos a Morelos!';
 				}
